@@ -1,0 +1,14 @@
+bool DeleteMine(SqList *&L,ElemType &value){
+  if(L.length==0)
+    return false;
+  int pop=0;
+  ElemType mine=L.data[0];
+  for(int i=1;i<L.length-1;i++){
+    if(L.data[i]<mine)
+      pop=i;
+  }
+  value=L.data[pop];
+  L.data[pop]=L.data[L.length-1];
+  L.length--;
+  return true;
+}
